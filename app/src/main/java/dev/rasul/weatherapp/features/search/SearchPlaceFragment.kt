@@ -1,4 +1,4 @@
-package dev.rasul.weatherapp.ui
+package dev.rasul.weatherapp.features.search
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,11 +13,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 import dev.rasul.weatherapp.PreferenceUtil
 import dev.rasul.weatherapp.R
-import dev.rasul.weatherapp.adapter.SearchPlaceAdapter
 import dev.rasul.weatherapp.databinding.FragmentSearchPlaceBinding
 import dev.rasul.weatherapp.extensions.removeFocus
-import dev.rasul.weatherapp.viewModel.SearchPlaceViewModel
-import dev.rasul.weatherapp.viewModel.SearchPlaceViewModelFactory
+import dev.rasul.weatherapp.features.current_weather.CurrentWeatherFragment
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -27,7 +25,8 @@ class SearchPlaceFragment : Fragment() {
 
     private val mAdapter: SearchPlaceAdapter = SearchPlaceAdapter { newPlace ->
         PreferenceUtil.setSelectedPlace(requireContext(), newPlace)
-        parentFragmentManager.beginTransaction().replace(R.id.container, MainFragment()).commit()
+        parentFragmentManager.beginTransaction().replace(R.id.container, CurrentWeatherFragment())
+            .commit()
     }
 
     @Inject
@@ -71,7 +70,8 @@ class SearchPlaceFragment : Fragment() {
         }
         binding.btnBack.setOnClickListener {
             if (PreferenceUtil.getSelectedPlace(requireContext()) == null) {
-                parentFragmentManager.beginTransaction().replace(R.id.container, MainFragment())
+                parentFragmentManager.beginTransaction()
+                    .replace(R.id.container, CurrentWeatherFragment())
                     .commit()
             } else {
                 parentFragmentManager.popBackStack()

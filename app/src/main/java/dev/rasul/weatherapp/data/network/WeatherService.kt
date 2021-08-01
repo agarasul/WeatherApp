@@ -1,7 +1,7 @@
-package dev.rasul.weatherapp.api
+package dev.rasul.weatherapp.data.network
 
-import dev.rasul.weatherapp.dto.PlacesDto
-import dev.rasul.weatherapp.dto.WeatherDto
+import dev.rasul.weatherapp.data.network.dto.PlacesDto
+import dev.rasul.weatherapp.data.network.dto.WeatherDto
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

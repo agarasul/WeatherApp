@@ -1,38 +1,36 @@
-package dev.rasul.weatherapp.viewModel
+package dev.rasul.weatherapp.features.search
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import dev.rasul.weatherapp.entity.PlacesEntity
-import dev.rasul.weatherapp.entity.WeatherEntity
-import dev.rasul.weatherapp.model.WeatherModel
+import dev.rasul.weatherapp.data.WeatherRepository
+import dev.rasul.weatherapp.data.db.entity.PlacesEntity
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
-class WeatherViewModelFactory @Inject constructor(
-    private val weatherModel: WeatherModel
+class SearchPlaceViewModelFactory @Inject constructor(
+    private val weatherRepository: WeatherRepository
 ) : ViewModelProvider.Factory {
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(WeatherViewModel::class.java)) {
-            return WeatherViewModel(
-                weatherModel = weatherModel
+        if (modelClass.isAssignableFrom(SearchPlaceViewModel::class.java)) {
+            return SearchPlaceViewModel(
+                weatherRepository = weatherRepository
             ) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }
 }
 
-
-class WeatherViewModel(
-    private val weatherModel: WeatherModel
+class SearchPlaceViewModel(
+    private val weatherRepository: WeatherRepository
 ) : ViewModel() {
 
-    private val _weatherLiveData = MutableLiveData<WeatherEntity>()
-    val weatherLiveData: LiveData<WeatherEntity> by this::_weatherLiveData
+    private val _placesLiveData = MutableLiveData<List<PlacesEntity>>()
+    val placesLiveData: LiveData<List<PlacesEntity>> by this::_placesLiveData
 
     private val _errorLiveData = MutableLiveData<Throwable>()
     val errorLiveData: LiveData<Throwable> by this::_errorLiveData
@@ -40,20 +38,21 @@ class WeatherViewModel(
     private val _loadingLiveData = MutableLiveData<Boolean>()
     val loadingLiveData: LiveData<Boolean> by this::_loadingLiveData
 
-    fun getWeather(place: PlacesEntity) {
+
+    fun getPlaces(query: String) {
         _loadingLiveData.postValue(true)
         CoroutineScope(Dispatchers.IO).launch {
-            weatherModel.getWeather(
-                lat = place.lat,
-                lon = place.lon
+            weatherRepository.getPlaces(
+                query = query
             ).collect { result ->
                 _loadingLiveData.postValue(false)
                 if (result.isSuccess) {
-                    _weatherLiveData.postValue(result.getOrNull())
+                    _placesLiveData.postValue(result.getOrNull())
                 } else {
                     _errorLiveData.postValue(result.exceptionOrNull())
                 }
             }
         }
     }
+
 }

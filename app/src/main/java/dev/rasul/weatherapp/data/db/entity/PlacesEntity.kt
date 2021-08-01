@@ -1,4 +1,4 @@
-package dev.rasul.weatherapp.entity
+package dev.rasul.weatherapp.data.db.entity
 
 import com.google.gson.Gson
 

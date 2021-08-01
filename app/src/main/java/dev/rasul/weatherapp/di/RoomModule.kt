@@ -7,9 +7,9 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.android.components.ActivityComponent
 import dagger.hilt.android.qualifiers.ApplicationContext
-import dev.rasul.weatherapp.db.AppDatabase
-import dev.rasul.weatherapp.db.WeatherDao
-import dev.rasul.weatherapp.db.converters.Converters
+import dev.rasul.weatherapp.data.db.AppDatabase
+import dev.rasul.weatherapp.data.db.WeatherDao
+import dev.rasul.weatherapp.data.db.converters.Converters
 
 @Module
 @InstallIn(ActivityComponent::class)

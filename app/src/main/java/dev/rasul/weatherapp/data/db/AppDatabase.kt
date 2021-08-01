@@ -1,10 +1,10 @@
-package dev.rasul.weatherapp.db
+package dev.rasul.weatherapp.data.db
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import dev.rasul.weatherapp.db.converters.Converters
-import dev.rasul.weatherapp.entity.WeatherEntity
+import dev.rasul.weatherapp.data.db.converters.Converters
+import dev.rasul.weatherapp.data.db.entity.WeatherEntity
 
 @Database(entities = [WeatherEntity::class], version = 1)
 @TypeConverters(Converters::class)

@@ -1,4 +1,4 @@
-package dev.rasul.weatherapp.ui
+package dev.rasul.weatherapp.features.current_weather
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -13,10 +13,8 @@ import dagger.hilt.android.AndroidEntryPoint
 import dev.rasul.weatherapp.Constants
 import dev.rasul.weatherapp.PreferenceUtil
 import dev.rasul.weatherapp.R
-import dev.rasul.weatherapp.adapter.DailyWeatherAdapter
-import dev.rasul.weatherapp.databinding.FragmentMainBinding
-import dev.rasul.weatherapp.viewModel.WeatherViewModel
-import dev.rasul.weatherapp.viewModel.WeatherViewModelFactory
+import dev.rasul.weatherapp.databinding.FragmentCurrentWeatherBinding
+import dev.rasul.weatherapp.features.search.SearchPlaceFragment
 import java.text.SimpleDateFormat
 import java.util.*
 import javax.inject.Inject
@@ -24,9 +22,9 @@ import kotlin.math.roundToInt
 
 
 @AndroidEntryPoint
-class MainFragment : Fragment() {
+class CurrentWeatherFragment : Fragment() {
 
-    private lateinit var binding: FragmentMainBinding
+    private lateinit var binding: FragmentCurrentWeatherBinding
 
     @Inject
     lateinit var weatherViewModelFactory: WeatherViewModelFactory
@@ -42,7 +40,7 @@ class MainFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentMainBinding.inflate(inflater, container, false)
+        binding = FragmentCurrentWeatherBinding.inflate(inflater, container, false)
         return binding.root
     }
 

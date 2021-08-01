@@ -1,4 +1,4 @@
-package dev.rasul.weatherapp.adapter
+package dev.rasul.weatherapp.features.search
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -6,8 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import dev.rasul.weatherapp.R
+import dev.rasul.weatherapp.data.db.entity.PlacesEntity
 import dev.rasul.weatherapp.databinding.SearchPlaceItemBinding
-import dev.rasul.weatherapp.entity.PlacesEntity
 
 class SearchPlaceAdapter(private val onClick: (PlacesEntity) -> Unit) :
     RecyclerView.Adapter<SearchPlaceAdapter.SearchPlaceHolder>() {

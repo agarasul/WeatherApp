@@ -1,4 +1,4 @@
-package dev.rasul.weatherapp.api.interceptor
+package dev.rasul.weatherapp.data.network.interceptor
 
 import okhttp3.Interceptor
 import okhttp3.Response

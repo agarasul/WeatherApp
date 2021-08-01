@@ -1,16 +1,16 @@
-package dev.rasul.weatherapp.model
+package dev.rasul.weatherapp.data
 
 import com.google.gson.Gson
-import dev.rasul.weatherapp.api.WeatherService
-import dev.rasul.weatherapp.db.WeatherDao
-import dev.rasul.weatherapp.dto.ErrorDto
-import dev.rasul.weatherapp.entity.PlacesEntity
-import dev.rasul.weatherapp.entity.WeatherEntity
+import dev.rasul.weatherapp.data.db.WeatherDao
+import dev.rasul.weatherapp.data.db.entity.PlacesEntity
+import dev.rasul.weatherapp.data.db.entity.WeatherEntity
+import dev.rasul.weatherapp.data.network.WeatherService
+import dev.rasul.weatherapp.data.network.dto.ErrorDto
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
-class WeatherModel @Inject constructor(
+class WeatherRepository @Inject constructor(
     private val weatherDao: WeatherDao,
     private val weatherService: WeatherService
 ) {

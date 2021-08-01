@@ -1,4 +1,4 @@
-package dev.rasul.weatherapp.dto
+package dev.rasul.weatherapp.data.network.dto
 
 import com.google.gson.annotations.SerializedName
 

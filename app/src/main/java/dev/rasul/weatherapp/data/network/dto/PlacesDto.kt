@@ -1,7 +1,7 @@
-package dev.rasul.weatherapp.dto
+package dev.rasul.weatherapp.data.network.dto
 
 import com.google.gson.annotations.SerializedName
-import dev.rasul.weatherapp.entity.PlacesEntity
+import dev.rasul.weatherapp.data.db.entity.PlacesEntity
 
 data class PlacesDto(
     @field:SerializedName("country")

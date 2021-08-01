@@ -1,10 +1,10 @@
-package dev.rasul.weatherapp.db.converters
+package dev.rasul.weatherapp.data.db.converters
 
 import androidx.room.ProvidedTypeConverter
 import androidx.room.TypeConverter
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
-import dev.rasul.weatherapp.entity.WeatherEntity
+import dev.rasul.weatherapp.data.db.entity.WeatherEntity
 import java.util.*
 
 @ProvidedTypeConverter

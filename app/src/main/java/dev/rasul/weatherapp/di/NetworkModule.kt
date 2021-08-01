@@ -6,8 +6,8 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dev.rasul.weatherapp.BuildConfig
 import dev.rasul.weatherapp.Constants
-import dev.rasul.weatherapp.api.WeatherService
-import dev.rasul.weatherapp.api.interceptor.ApiInterceptor
+import dev.rasul.weatherapp.data.network.WeatherService
+import dev.rasul.weatherapp.data.network.interceptor.ApiInterceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

@@ -1,7 +1,7 @@
-package dev.rasul.weatherapp.dto
+package dev.rasul.weatherapp.data.network.dto
 
 import com.google.gson.annotations.SerializedName
-import dev.rasul.weatherapp.entity.WeatherEntity
+import dev.rasul.weatherapp.data.db.entity.WeatherEntity
 
 data class WeatherDto(
 

@@ -1,4 +1,4 @@
-package dev.rasul.weatherapp.adapter
+package dev.rasul.weatherapp.features.current_weather
 
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
@@ -9,8 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.squareup.picasso.Picasso
 import dev.rasul.weatherapp.Constants
 import dev.rasul.weatherapp.R
+import dev.rasul.weatherapp.data.db.entity.WeatherEntity
 import dev.rasul.weatherapp.databinding.DailyWeatherItemBinding
-import dev.rasul.weatherapp.entity.WeatherEntity
 import java.text.SimpleDateFormat
 import java.util.*
 import kotlin.math.roundToInt

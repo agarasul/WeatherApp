@@ -6,8 +6,8 @@ import dagger.hilt.android.AndroidEntryPoint
 import dev.rasul.weatherapp.PreferenceUtil
 import dev.rasul.weatherapp.R
 import dev.rasul.weatherapp.databinding.ActivityMainBinding
-import dev.rasul.weatherapp.ui.MainFragment
-import dev.rasul.weatherapp.ui.SearchPlaceFragment
+import dev.rasul.weatherapp.features.current_weather.CurrentWeatherFragment
+import dev.rasul.weatherapp.features.search.SearchPlaceFragment
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
             if (currentPlace == null) {
                 replace(R.id.container, SearchPlaceFragment())
             } else {
-                replace(R.id.container, MainFragment())
+                replace(R.id.container, CurrentWeatherFragment())
             }
         }.commit()
     }

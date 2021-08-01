@@ -1,9 +1,9 @@
-package dev.rasul.weatherapp.db
+package dev.rasul.weatherapp.data.db
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
-import dev.rasul.weatherapp.entity.WeatherEntity
+import dev.rasul.weatherapp.data.db.entity.WeatherEntity
 
 @Dao
 interface WeatherDao {

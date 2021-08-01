@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.core.content.edit
 import androidx.preference.PreferenceManager
 import com.google.gson.Gson
-import dev.rasul.weatherapp.entity.PlacesEntity
+import dev.rasul.weatherapp.data.db.entity.PlacesEntity
 
 object PreferenceUtil {
     private const val IS_FIRST = "is_first"
