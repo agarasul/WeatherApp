@@ -25,17 +25,13 @@ class WeatherDbUnitTest {
     private lateinit var db: AppDatabase
 
     @Before
+    @Throws(Exception::class)
     fun createDb() {
-        try {
-            val context = ApplicationProvider.getApplicationContext<Context>()
-            db = Room.inMemoryDatabaseBuilder(
-                context, AppDatabase::class.java
-            ).addTypeConverter(Converters())
-                .build()
-            weatherDao = db.weatherDao()
-        } catch (e: Exception) {
-            e.printStackTrace()
-        }
+        val context = ApplicationProvider.getApplicationContext<Context>()
+        db = Room.inMemoryDatabaseBuilder(context, AppDatabase::class.java)
+            .addTypeConverter(Converters())
+            .build()
+        weatherDao = db.weatherDao()
     }
 
     @After
